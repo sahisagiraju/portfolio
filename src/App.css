@@ -1,5 +1,5 @@
 @keyframes neonPulse {
-  0%, 100% { text-shadow: 0 0 5px #426398, 0 0 10px #426398, 0 0 20px #426398; }
+  0%, 100% { text-shadow: 0 0 5px #5271ff, 0 0 10px #5271ff, 0 0 20px #5271ff; }
   50% { text-shadow: 0 0 2px #426398, 0 0 5px #426398; }
 }
 
@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-.App-logo {
+.App-logo { 
   height: 40vmin;
   pointer-events: none;
 }

@@ -15,7 +15,7 @@ const Header = () => (
       {/* Intro text */}
       <div className="text-center md:text-left">
       <h1
-  className="text-4xl font-bold text-accent animate-flicker-neon"
+  className="text-4xl font-bold text-[#ffffff] animate-flicker-neon"
   style={{
     animation: 'flicker 2s linear forwards',
   }}
