@@ -1,3 +1,14 @@
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 5px #426398, 0 0 10px #426398, 0 0 20px #426398; }
+  50% { text-shadow: 0 0 2px #426398, 0 0 5px #426398; }
+}
+
+.animate-neon-glow {
+  animation: neonPulse 2s infinite ease-in-out;
+}
+
+
+
 .App {
   text-align: center;
 }
