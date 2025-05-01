@@ -30,7 +30,7 @@ export default function CarouselWithCaptions() {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto relative font-inter mt-4">
+    <div className="w-full max-w-xl mx-auto relative font-inter mt-10">
       {/* Image */}
       <div className="overflow-hidden rounded-lg shadow-lg">
         <img
