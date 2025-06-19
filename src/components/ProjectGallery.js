@@ -6,26 +6,31 @@ const projects = [
     title: 'UtiliTrack',
     description: 'Automates maintenance scheduling, tracks customer feedback, and monitors energy usage to help businesses reduce costs.',
     link: 'https://devpost.com/software/utilitrack',
+    hasWinner: true,
   },
   {
     title: 'Park-EZ',
     description: 'Uses computer vision to detect accessible parking spots in real-time, providing instant availability updates.',
     link: 'https://devpost.com/software/park-ez',
+    hasWinner: true,
   },
   {
     title: 'Haven',
     description: 'Transforms house hunting with AI-driven personalized home matches and validation scores for buyers.',
     link: 'https://devpost.com/software/haven-2u0n9g',
+    hasWinner: true,
   },
   {
     title: 'Citrus',
     description: 'AI-powered predictive maintenance tool that helps prevent machine failures by analyzing sensor data.',
     link: 'https://devpost.com/software/citrus',
+    hasWinner: true,
   },
   {
     title: 'FinSim',
     description: 'A stock market simulator that allows users to build portfolios and track investment decisions over time.',
     link: 'https://devpost.com/software/finsim-d2j8be',
+    hasWinner: true,
   },
   {
     title: 'Paralaví',

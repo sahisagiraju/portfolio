@@ -9,6 +9,10 @@ function App() {
       <Header />
       <Carousel />
       <ProjectGallery />
+      <div className="text-center p-2 text-gray-400 text-sm">
+        © 2024 Sahi Sagiraju. All Rights Reserved.
+      </div>
+
     </div>
   );
 }
