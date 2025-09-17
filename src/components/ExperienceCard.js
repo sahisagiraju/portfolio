@@ -43,7 +43,7 @@ const ExperienceCard = ({
             <span className="text-gray-400 text-sm">{location}</span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-            <h4 className="text-lg text-accent font-medium">{position}</h4>
+            <h4 className="text-lg text-blue-400 font-medium">{position}</h4>
             <span className="text-gray-300 text-sm">
               {startDate} - {endDate}
             </span>

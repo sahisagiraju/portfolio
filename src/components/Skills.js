@@ -4,22 +4,73 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Programming Languages',
-      skills: ['JavaScript', 'Python', 'Java', 'C++', 'TypeScript', 'SQL', 'HTML/CSS', 'Go', 'C#']
+      skills: [
+        'Python',
+        'Java',
+        'C++',
+        'C',
+        'JavaScript',
+        'TypeScript',
+        'SQL',
+        'HTML/CSS'
+      ]
     },
     {
       title: 'Frameworks & Libraries',
-      skills: ['React', 'Node.js', 'Express.js', 'Spring Boot', 'Django', 'Flask', 'Next.js', 'Tailwind CSS', 'Bootstrap']
+      skills: [
+        'React',
+        'Next.js',
+        'Tailwind CSS',
+        'Flutter/Dart',
+        'FastAPI',
+        'Prisma',
+        'Express.js',
+        'Flask',
+        'SCSS'
+      ]
     },
     {
       title: 'Databases & Cloud',
-      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'AWS', 'Google Cloud', 'Firebase', 'Docker', 'Kubernetes']
+      skills: [
+        'PostgreSQL',
+        'MySQL',
+        'SQLite',
+        'Amazon Web Services (AWS)',
+        'Google Cloud',
+        'Google Firebase',
+        'Docker',
+        'Kubernetes',
+        'Terraform'
+      ]
+    },
+    {
+      title: 'Machine Learning & AI',
+      skills: [
+        'EasyOCR',
+        'YOLOv8',
+        'CrewAI'
+      ]
     },
     {
       title: 'Tools & Technologies',
-      skills: ['Git', 'GitHub', 'VS Code', 'IntelliJ', 'Postman', 'Figma', 'Linux', 'REST APIs', 'GraphQL']
+      skills: [
+        'Git',
+        'GitHub',
+        'GitHub Actions',
+        'VS Code',
+        'IntelliJ',
+        'Postman',
+        'Figma',
+        'Linux/Unix',
+        'REST APIs',
+        'GraphQL',
+        'Jira',
+        'Rally',
+        'ServiceNow'
+      ]
     }
   ];
-
+  
   return (
     <section id="skills" className="py-20 px-4 bg-gray-800">
       <div className="max-w-6xl mx-auto">

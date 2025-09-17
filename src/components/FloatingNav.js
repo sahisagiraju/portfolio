@@ -51,7 +51,7 @@ const FloatingNav = () => {
             <li key={item.id}>
               {item.isExternal ? (
                 <a
-                  href="#" // Will be updated with actual resume URL later
+                  href="https://drive.google.com/file/d/1jMug5SYCtUGjDyz9oDmYz13Jh6uUb0pu/view?usp=sharing" // Will be updated with actual resume URL later
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium px-3 py-2 rounded-full transition-all duration-200 text-gray-300 hover:text-white hover:bg-gray-700/50 inline-block"

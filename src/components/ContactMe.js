@@ -4,21 +4,11 @@ const ContactMe = () => {
   const contactInfo = [
     {
       type: 'Email',
-      value: 'your.email@example.com', // Replace with actual email
-      href: 'mailto:your.email@example.com',
+      value: 'sahithedev@gmail.com', // Replace with actual email
+      href: 'sahithedev@gmail.com',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      type: 'Phone',
-      value: '+1 (555) 123-4567', // Replace with actual phone
-      href: 'tel:+15551234567',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       )
     },
@@ -32,16 +22,7 @@ const ContactMe = () => {
         </svg>
       )
     },
-    {
-      type: 'Devpost',
-      value: 'devpost.com/sahisagiraju',
-      href: 'https://devpost.com/sahisagiraju', // Replace with actual Devpost URL
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.002 1.61L0 12.004L6.002 22.39h11.996L24 12.004L17.998 1.61H6.002zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595V5.694zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853H10.112z"/>
-        </svg>
-      )
-    }
+
   ];
 
   return (
