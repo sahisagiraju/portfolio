@@ -50,7 +50,7 @@ const projects = [
 ];
 
 const ProjectGallery = () => (
-    <section className="bg-gray-900 py-16 px-4 transition-all duration-1000">
+    <section className="bg-gray-800 py-16 px-4 transition-all duration-1000">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-accent pb-2">Projects</h2>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
