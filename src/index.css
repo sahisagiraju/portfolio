@@ -9,7 +9,7 @@
   }
   10% {
     opacity: 1;
-    text-shadow: 0 0 5px #426398, 0 0 10px #426398, 0 0 20px #426398;
+    text-shadow: 0 0 5px #7A3350, 0 0 10px #7A3350, 0 0 20px #7A3350;
   }
   20% {
     opacity: 0.4;
@@ -17,14 +17,13 @@
   }
   30% {
     opacity: 1;
-    text-shadow: 0 0 5px #426398, 0 0 10px #426398, 0 0 20px #426398;
+    text-shadow: 0 0 5px #7A3350, 0 0 10px #7A3350, 0 0 20px #7A3350;
   }
   100% {
     opacity: 1;
-    text-shadow: 0 0 10px #426398, 0 0 20px #5271ff, 0 0 30px #5271ff;
+    text-shadow: 0 0 10px #7A3350, 0 0 20px #A84870, 0 0 30px #A84870;
   }
 }
-
 
 body {
   margin: 0;
@@ -33,10 +32,57 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121727;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Fix image pixelation */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* High quality images */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+  }
 }
