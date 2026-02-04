@@ -9,7 +9,7 @@ const experiences = [
     startDate: 'June 2025',
     endDate: 'Present',
     location: 'North Hills, NY',
-    technologies: ['Terraform', 'AWS StepFunction', 'Lambda', 'Django', 'Python'],
+    technologies: ['AWS Step Functions', 'AWS Lambda', 'AWS AppSync', 'TypeScript', 'Stencil.js', 'Python', 'Django', 'Terraform'],
     description: 'Currently working as a Software Engineer I at Cox Automotive.',
     logo: require('../assets/cai.png')
   },
