@@ -4,26 +4,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: '#7A3350',
-        'accent-light': '#A84870',
-        'accent-dark': '#5A2438',
+        // Warm paper / ink editorial palette
+        paper: '#F3EEE3',       // page background — warm bone
+        'paper-2': '#EAE3D4',   // recessed panels / alt rows
+        'paper-3': '#E1D8C6',   // borders on paper
+        ink: '#1A1613',         // primary text — warm near-black
+        'ink-2': '#4A433B',     // secondary text
+        'ink-3': '#8A8072',     // muted / metadata
+        rule: 'rgba(122, 51, 80, 0.24)', // hairline rules — soft maroon tint
+        // Signature wine accent (kept from original)
+        wine: '#7A3350',
+        'wine-light': '#A84870',
+        'wine-dark': '#5A2438',
+        'wine-soft': '#DB93AD',  // light rose — legible accent on maroon backgrounds
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      fontFamily: {
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
       },
       animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-        'fade-in-down': 'fadeInDown 0.6s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-        'scale-in': 'scaleIn 0.5s ease-out forwards',
-        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'gradient-shift': 'gradientShift 3s ease infinite',
-        'spin-slow': 'spin 20s linear infinite',
-        'shimmer': 'shimmer 2s ease-in-out infinite',
-        'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.7s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        marquee: 'marquee 32s linear infinite',
+        'marquee-rev': 'marquee-rev 40s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -31,45 +38,16 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        fadeInDown: {
-          '0%': { opacity: '0', transform: 'translateY(-30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-50px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(50px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.9)' },
-          '100%': { opacity: '1', transform: 'scale(1)' },
-        },
-        glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(122, 51, 80, 0.5), 0 0 40px rgba(122, 51, 80, 0.3)' },
-          '50%': { boxShadow: '0 0 30px rgba(122, 51, 80, 0.8), 0 0 60px rgba(122, 51, 80, 0.5)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px) translateX(0px)' },
-          '33%': { transform: 'translateY(-20px) translateX(10px)' },
-          '66%': { transform: 'translateY(-10px) translateX(-10px)' },
-        },
-        gradientShift: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        shimmer: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' },
-        },
-        'bounce-slow': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-5px)' },
+        'marquee-rev': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },

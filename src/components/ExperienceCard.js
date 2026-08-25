@@ -1,5 +1,25 @@
 import React, { useState } from 'react';
 
+const renderDescription = (text) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.split(urlRegex).map((part, i) =>
+    part.match(urlRegex) ? (
+      <a
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-wine link-underline"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {part.replace(/^https?:\/\//, '')}
+      </a>
+    ) : (
+      part
+    )
+  );
+};
+
 const ExperienceCard = ({
   company,
   position,
@@ -8,139 +28,90 @@ const ExperienceCard = ({
   location,
   technologies,
   description,
-  logo
+  logo,
+  num,
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Helper function to render description with clickable links
-  const renderDescription = (text) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const parts = text.split(urlRegex);
-
-    return parts.map((part, index) => {
-      if (part.match(urlRegex)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent-light hover:text-accent underline hover:no-underline transition-colors duration-300"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {part}
-          </a>
-        );
-      }
-      return part;
-    });
-  };
+  const [open, setOpen] = useState(false);
+  const isPresent = endDate === 'Present';
 
   return (
-    <div
-      className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-xl shadow-lg mb-4 overflow-hidden
-        border border-accent/30 backdrop-blur-sm hover:border-accent/70
-        hover:shadow-[0_0_50px_rgba(122,51,80,0.5)] transition-all duration-500
-        transform hover:scale-[1.02] group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Animated gradient overlay */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent-dark/10
-        transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-      />
-
-      {/* Main horizontal row - clickable */}
-      <div
-        className="flex items-center p-4 cursor-pointer relative z-10 transition-all duration-300"
-        onClick={() => setIsExpanded(!isExpanded)}
+    <div className="rule-b group">
+      {/* Clickable row */}
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full text-left py-6 md:py-7 px-2 md:px-3 -mx-2 md:-mx-3 flex items-center gap-4 md:gap-6 hover:bg-paper-2 transition-colors duration-300"
+        aria-expanded={open}
       >
-        {/* Company Logo */}
-        <div className="flex-shrink-0 w-16 h-16 mr-4">
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black rounded-lg flex items-center justify-center overflow-hidden
-            border border-accent/30 group-hover:border-accent/60 transition-all duration-300
-            group-hover:shadow-[0_0_20px_rgba(122,51,80,0.4)]">
-            {logo ? (
-              <img
-                src={logo}
-                alt={`${company} logo`}
-                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-              />
-            ) : (
-              <span className="text-accent text-xl font-bold text-center">
-                {company.charAt(0)}
+        <span className="label text-wine w-8 shrink-0 hidden sm:block">{num}</span>
+
+        <div className="w-12 h-12 md:w-14 md:h-14 shrink-0 bg-paper border border-rule grid place-items-center overflow-hidden">
+          {logo ? (
+            <img src={logo} alt={`${company} logo`} className="w-full h-full object-contain p-1.5" />
+          ) : (
+            <span className="display font-bold text-wine">{company.charAt(0)}</span>
+          )}
+        </div>
+
+        <div className="flex-grow min-w-0">
+          <div className="flex items-baseline gap-3 flex-wrap">
+            <h3 className="display text-2xl md:text-3xl font-bold text-ink group-hover:text-wine transition-colors duration-300 leading-none">
+              {company}
+            </h3>
+            {isPresent && (
+              <span className="label text-wine inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
+                Now
               </span>
             )}
           </div>
+          <p className="text-ink-2 mt-1.5 text-[15px] font-medium">{position}</p>
         </div>
 
-        {/* Company and Position Info */}
-        <div className="flex-grow">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
-              {company}
-            </h3>
-            <span className="text-gray-300 text-sm font-medium group-hover:text-accent-light transition-colors duration-300">
-              {location}
-            </span>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-            <h4 className="text-lg text-white font-medium group-hover:text-accent transition-colors duration-300">
-              {position}
-            </h4>
-            <span className="text-gray-200 text-sm font-medium">
-              {startDate} - {endDate}
-            </span>
-          </div>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-2.5 py-1 bg-black/60 text-gray-200 text-xs font-medium rounded-md border border-accent/30
-                  hover:bg-white/15 hover:text-white hover:border-accent hover:scale-105
-                  transition-all duration-300 cursor-default"
-                style={{ transitionDelay: `${index * 30}ms` }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        {/* Right meta */}
+        <div className="hidden md:flex flex-col items-end shrink-0 text-right">
+          <span className="label text-ink">
+            {startDate.split(' ').pop()} — {isPresent ? 'Now' : endDate.split(' ').pop()}
+          </span>
+          <span className="label text-ink-3 mt-1">{location}</span>
         </div>
 
-        {/* Expand/Collapse Icon */}
-        <div className="flex-shrink-0 ml-4">
-          <svg
-            className={`w-5 h-5 text-accent transition-all duration-500 ${
-              isExpanded ? 'rotate-180' : ''
-            } group-hover:text-accent-light group-hover:scale-125`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </div>
+        <span
+          className={`shrink-0 w-8 h-8 grid place-items-center border border-rule text-wine group-hover:border-wine group-hover:bg-wine group-hover:text-paper transition-all duration-300 ${
+            open ? 'rotate-45' : ''
+          }`}
+          aria-hidden
+        >
+          +
+        </span>
+      </button>
 
-      {/* Expanded Description */}
+      {/* Expanded body */}
       <div
-        className={`overflow-hidden transition-all duration-500 ${
-          isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 pb-4 border-t border-accent/30 relative z-10">
-          <div className="pt-4 animate-fade-in-up">
-            <h5 className="text-white font-semibold mb-3 text-lg">Description</h5>
-            <p className="text-gray-200 leading-relaxed text-[15px]">{renderDescription(description)}</p>
+        <div className="pb-8 pl-2 md:pl-[6.5rem] pr-2 grid md:grid-cols-3 gap-6">
+          <div className="md:col-span-2">
+            <p className="text-ink-2 leading-relaxed text-[15px]">
+              {renderDescription(description)}
+            </p>
+          </div>
+          <div className="md:col-span-1">
+            <span className="label text-ink-3 block mb-3 md:hidden">
+              {startDate} — {endDate} · {location}
+            </span>
+            <span className="label text-ink-3 block mb-3">Stack</span>
+            <div className="flex flex-wrap gap-1.5">
+              {technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="label !tracking-normal !text-[0.68rem] normal-case px-2 py-1 border border-rule text-ink-2 bg-paper"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
