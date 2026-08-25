@@ -5,7 +5,6 @@ const socials = [
   { label: 'GitHub', href: 'https://github.com/sahisagiraju' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sahishnu-sagiraju' },
   { label: 'Devpost', href: 'https://devpost.com/sahi-sagiraju' },
-  { label: 'Résumé', href: '/resume.pdf' },
   { label: 'Email', href: 'mailto:sahithedev@gmail.com' },
 ];
 
